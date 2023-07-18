@@ -906,7 +906,7 @@ class Session(TComs, baseSession):
         
         #filldepression test
         Whitebox(out_dir=self.out_dir, logger=logger
-                 ).fillDepressionWAL(dem_fp, pwb_fp, out_fp=ofp)
+                 ).FillDepressionsWangAndLiu(dem_fp, pwb_fp, out_fp=ofp)
             
         #=======================================================================
         # execute

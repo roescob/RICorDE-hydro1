@@ -105,7 +105,7 @@ class Whitebox(object):
         return ofp
 
 #fill depression test
-    def fillDepressionWAL(self,
+    def FillDepressionsWangAndLiu(self,
                              dem_fp,
                              out_fp=None,
                                   logger=None):
@@ -135,7 +135,7 @@ class Whitebox(object):
         log.info('executing \'%s\' on \'%s\''%(tool_nm, os.path.basename(dem_fp)))
         self.__run__(args) #execute
         
-        return out_fp
+        return dem_fp
 
     def elevationAboveStream(self,
                              dem_fp,
