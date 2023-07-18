@@ -8,7 +8,7 @@ Change this to match your whitebox exe path
 """
 whitebox_exe_d = {
 
-        'v2.1.0':r'C:\LS\06_SOFT\whitebox\v2.1.0\whitebox_tools.exe'
+        'v2.1.0':r'C:\WBT\whitebox_tools.exe'
         }
 
 for k,v in whitebox_exe_d.items():
