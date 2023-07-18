@@ -2016,6 +2016,7 @@ class QAlgos(object):
         raise Error('cant get the whitebox provider to work')
         
         ins_d = { 'dem' : rlay,
+                  'dist' : dist, 
                   'fill' : True, 'flat_increment' : None, 'max_cost' : None, 
                   'min_dist' : True,
                    'output' : output }
