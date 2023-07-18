@@ -52,7 +52,7 @@ class Whitebox(object):
 
         assert os.path.exists(self.exe_fp), 'bad exe: \n    %s'%self.exe_fp
         
-    def breachDepressionsLeastCost(self,
+    def FillDepressionsWangAndLiu(self,
                                    dem_fp, #file path to fill. MUST BE UNCOMPRESSED!
                                    dist=100, #(Maximum search distance for breach paths in cells) pixel distance to fill
                                    ofp = None, #outpath

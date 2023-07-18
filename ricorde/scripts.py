@@ -838,7 +838,7 @@ class Session(TComs, baseSession):
         # execute
         #=======================================================================
         ofp = Whitebox(out_dir=self.temp_dir, logger=logger
-                 ).breachDepressionsLeastCost(dem_rlay.source(), dist=dist, ofp=ofp)
+                 ).FillDepressionsWangAndLiu(dem_rlay.source(), dist=dist, ofp=ofp)
                  
         #=======================================================================
         # wrap
