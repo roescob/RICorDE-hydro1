@@ -62,7 +62,7 @@ class Whitebox(object):
         #=======================================================================
         # defaults
         #=======================================================================
-        tool_nm = 'BreachDepressionsLeastCost'
+        tool_nm = 'FillDepressionsWangAndLiu'
         if logger is None: logger=self.logger
         log=logger.getChild(tool_nm)
         
