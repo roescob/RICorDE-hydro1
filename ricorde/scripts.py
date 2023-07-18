@@ -904,6 +904,10 @@ class Session(TComs, baseSession):
         """relaxing
         assert self.getRasterCompression(dem_fp) is None, 'dem has some compression: %s'%dem_fp"""
         
+        #filldepression test
+        Whitebox(out_dir=self.out_dir, logger=logger
+                 ).fillDepressionWAL(dem_fp, pwb_fp, out_fp=ofp)
+            
         #=======================================================================
         # execute
         #=======================================================================

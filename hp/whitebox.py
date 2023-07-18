@@ -103,7 +103,40 @@ class Whitebox(object):
         #=======================================================================
         
         return ofp
-    
+
+#fill depression test
+    def fillDepressionWAL(self,
+                             dem_fp,
+                             out_fp=None,
+                                  logger=None):
+
+        #=======================================================================
+        # defaults
+        #=======================================================================
+        tool_nm = 'FillDepressionsWangAndLiu'
+        if logger is None: logger=self.logger
+        log=logger.getChild(tool_nm)
+        
+        if out_fp is None: 
+            out_fp = os.path.join(self.out_dir, os.path.splitext(os.path.basename(dem_fp))[0]+'_HAND.tif')
+        
+        assert out_fp.endswith('.tif')
+ 
+        #=======================================================================
+        # setup
+        #=======================================================================
+        args = [self.exe_fp,'-v','--run={}'.format(tool_nm),'--output={}'.format(out_fp),
+                '--dem={}'.format(dem_fp),
+                ]
+        
+        #=======================================================================
+        # execute
+        #=======================================================================
+        log.info('executing \'%s\' on \'%s\''%(tool_nm, os.path.basename(dem_fp)))
+        self.__run__(args) #execute
+        
+        return out_fp
+
     def elevationAboveStream(self,
                              dem_fp,
                              streams_fp,
