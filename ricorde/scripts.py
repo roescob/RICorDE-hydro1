@@ -837,11 +837,9 @@ class Session(TComs, baseSession):
         #=======================================================================
         # execute
         #=======================================================================
-        temp_filldepression = ofp
         ofp = Whitebox(out_dir=self.temp_dir, logger=logger
-                 ).FillDepressionsWangAndLiu(dem_rlay.source(), temp_filldepression
-                 )
-
+                 ).breachDepressionsLeastCost(dem_rlay.source(), dist=dist, ofp=ofp)
+                 
         #=======================================================================
         # wrap
         #=======================================================================
@@ -906,10 +904,6 @@ class Session(TComs, baseSession):
         """relaxing
         assert self.getRasterCompression(dem_fp) is None, 'dem has some compression: %s'%dem_fp"""
         
-        #filldepression test
-        Whitebox(out_dir=self.out_dir, logger=logger
-                 ).FillDepressionsWangAndLiu(dem_fp, pwb_fp, out_fp=ofp)
-            
         #=======================================================================
         # execute
         #=======================================================================
