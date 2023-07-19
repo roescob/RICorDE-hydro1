@@ -837,10 +837,11 @@ class Session(TComs, baseSession):
         #=======================================================================
         # execute
         #=======================================================================
+        temp_filldepression = ofp
         ofp = Whitebox(out_dir=self.temp_dir, logger=logger
                  ).FillDepressionsWangAndLiu(dem_rlay.source(), temp_filldepression
                  )
-        ofp = temp_filldepression
+
         #=======================================================================
         # wrap
         #=======================================================================
