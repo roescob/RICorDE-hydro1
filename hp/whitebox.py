@@ -52,7 +52,7 @@ class Whitebox(object):
 
         assert os.path.exists(self.exe_fp), 'bad exe: \n    %s'%self.exe_fp
         
-    def FillDepressionsWangAndLiu(self,
+    def breachDepressionsLeastCost(self,
                                    dem_fp, #file path to fill. MUST BE UNCOMPRESSED!
                                    dist=100, #(Maximum search distance for breach paths in cells) pixel distance to fill
                                    ofp = None, #outpath
@@ -63,7 +63,7 @@ class Whitebox(object):
         #=======================================================================
         # defaults
         #=======================================================================
-        tool_nm = 'FillDepressionsWangAndLiu'
+        tool_nm = 'BreachDepressionsLeastCost'
         if logger is None: logger=self.logger
         log=logger.getChild(tool_nm)
         
@@ -103,40 +103,7 @@ class Whitebox(object):
         #=======================================================================
         
         return ofp
-
-#fill depression test
-    def FillDepressionsWangAndLiu(self,
-                             dem_fp,
-                             out_fp=None,
-                                  logger=None):
-
-        #=======================================================================
-        # defaults
-        #=======================================================================
-        tool_nm = 'FillDepressionsWangAndLiu'
-        if logger is None: logger=self.logger
-        log=logger.getChild(tool_nm)
-        
-        if out_fp is None: 
-            out_fp = os.path.join(self.out_dir, os.path.splitext(os.path.basename(dem_fp))[0]+'_HAND.tif')
-        
-        assert out_fp.endswith('.tif')
- 
-        #=======================================================================
-        # setup
-        #=======================================================================
-        args = [self.exe_fp,'-v','--run={}'.format(tool_nm),'--output={}'.format(out_fp),
-                '--dem={}'.format(dem_fp),
-                ]
-        
-        #=======================================================================
-        # execute
-        #=======================================================================
-        log.info('executing \'%s\' on \'%s\''%(tool_nm, os.path.basename(dem_fp)))
-        self.__run__(args) #execute
-        
-        return dem_fp
-
+    
     def elevationAboveStream(self,
                              dem_fp,
                              streams_fp,

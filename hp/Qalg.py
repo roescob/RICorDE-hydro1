@@ -2008,7 +2008,7 @@ class QAlgos(object):
     #===========================================================================
     # WHITEBOX------
     #===========================================================================
-    def FillDepressionsWangAndLiu(self,
+    def BreachDepressionsLeastCost(self,
                                    rlay,
                                    dist=100,
                                    output='TEMPORARY_OUTPUT',
@@ -2021,7 +2021,7 @@ class QAlgos(object):
                   'min_dist' : True,
                    'output' : output }
         
-        algo_nm='wbt:FillDepressionsWangAndLiu'
+        algo_nm='wbt:BreachDepressionsLeastCost'
         
         res_d = processing.run(algo_nm, ins_d, feedback=self.feedback)
         
