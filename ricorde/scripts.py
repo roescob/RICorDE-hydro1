@@ -903,15 +903,8 @@ class Session(TComs, baseSession):
         #=======================================================================
         """relaxing
         assert self.getRasterCompression(dem_fp) is None, 'dem has some compression: %s'%dem_fp"""
-        
-        #=======================================================================
-        # execute hydro-correction FilldepressionWangAndLiu(2006)
-        #=======================================================================
-        #FilldepressionWangandLiu is not defined under whitebox.py as 
-        #elevationAboveStream is
-        Whitebox(out_dir=self.out_dir, logger=logger
-                 ).FillDepressionsWangAndLiu(dem_fp, out_fp=ofp)
-
+    
+                 
         #=======================================================================
         # execute
         #=======================================================================
