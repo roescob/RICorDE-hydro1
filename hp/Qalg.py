@@ -2021,7 +2021,7 @@ class QAlgos(object):
                   'min_dist' : True,
                    'output' : output }
         
-        algo_nm='wbt:BreachDepressionsLeastCost'
+        algo_nm='wbt:FillDepressions'
         
         res_d = processing.run(algo_nm, ins_d, feedback=self.feedback)
         
