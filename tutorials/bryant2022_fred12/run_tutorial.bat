@@ -11,7 +11,7 @@ REM =============
 REM SETUP
 REM =============
 REM Activate pyqgis environment and 
-call "%~dp0..\..\dev\activate_py.bat"
+call "G:\My Drive\RESEARCH\RICorDE_evaluation_inputs_outputs_logs\python-qgis-ltr_3228_activation.bat"
 
  
 REM set the path to RICorDE's main caller

@@ -1,6 +1,6 @@
 '''Application wide defaults'''
 import os
-
+#import processing?
  
 #location of whitebox executable
 """
@@ -24,6 +24,6 @@ proj_dir = os.path.dirname(os.path.abspath(__file__))
 logcfg_file=os.path.join(proj_dir, 'logger.conf')
 
 #root directory for building default directories in
-root_dir=r'C:\LS\10_IO\ricorde'
+root_dir=r'C:\Users\koysa\OneDrive\Documents\GitHub\RICorDE-hydro1'
 
 #parameters for parsing the parameter file
