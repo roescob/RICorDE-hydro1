@@ -1,0 +1,37 @@
+        #=======================================================================
+        # slope filter
+        #=======================================================================
+        if slopeTH>0.0:
+            feedback.pushInfo(f'slope filtering w/ threshold={slopeTH} \n\n')
+            
+            #boundary1 = QgsRasterLayer(boundary1, 'boundary1')
+ 
+                        
+            #compute slope
+            #doesnt seem to work... maybe crs problem?
+            #===================================================================
+            # slope_fp = self._algo('gdal:slope', 
+            #            { 'AS_PERCENT' : True, 'BAND' : 1, 'COMPUTE_EDGES' : False, 
+            #             'EXTRA' : '', 'INPUT' :dem_rlay_c,
+            #             'OPTIONS' : '', 'OUTPUT' : 'TEMPORARY_OUTPUT', 'SCALE' : 1, 'ZEVENBERGEN' : False }
+            #            )['OUTPUT']
+            #===================================================================
+            #ranges from 0-76 for test
+            slope_fp = self._algo('grass7:r.slope.aspect', 
+                       { '-a' : True, '-e' : False, '-n' : False, 
+                        'GRASS_RASTER_FORMAT_META' : '', 'GRASS_RASTER_FORMAT_OPT' : '', 
+                        'GRASS_REGION_CELLSIZE_PARAMETER' : 0, 'GRASS_REGION_PARAMETER' : None, 
+                        'elevation' : dem_rlay, 
+                        'format' : 1, 'min_slope' : 0, 'precision' : 0, 'slope' : 'TEMPORARY_OUTPUT', 
+                        'zscale' : 1 })['slope']
+                       
+            #apply filter; removes slope % above input threshold from flood boundary
+            boundary2 = self._gdal_calc({'FORMULA':f'B*(A <= {slopeTH})', 
+                                'INPUT_A':slope_fp, 'BAND_A':1, 
+                                'INPUT_B':boundary1, 'BAND_B':1,
+                                'NO_DATA':0.0,'OUTPUT':'TEMPORARY_OUTPUT', 'RTYPE':5})
+            
+        else:
+            
+            feedback.pushInfo(f'no slope threshold set to zero... skipping filtering')
+            boundary2=boundary1
