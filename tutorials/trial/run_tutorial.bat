@@ -2,17 +2,17 @@ ECHO off
 REM =============
 REM VARIABLES
 REM =============
-set PARAM_FP=%~dp0\parameters_out11.ini
+set PARAM_FP=%~dp0\parameters.ini
 
 REM default path for outputs
-set ROOT_DIR=C:\Users\koysa\OneDrive\Documents\GitHub\RICorDE-hydro1\outputs
+set ROOT_DIR=C:\RICorDE-dev\outputs
 
 REM =============
 REM SETUP
 REM =============
 REM activate pyqgis
-#call "G:\My Drive\RESEARCH\RICorDE_evaluation_inputs_outputs_logs\python-qgis-ltr_3228_activation.bat"
-call "C:\Users\koysa\OneDrive\Documents\GitHub\RICorDE-hydro1\tutorials\trial\python-qgis-activate-20230112.bat"
+call "C:\Program Files\QGIS 3.22.8\ricorde\python-qgis-ltr_3228_activate.bat"
+
  
 REM =============
 REM EXECUTE 
